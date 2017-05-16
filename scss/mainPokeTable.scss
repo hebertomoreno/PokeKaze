@@ -12,7 +12,15 @@ tr {
 		border-bottom: 2px solid black;;
 	}
 }
-
+.headerCell{
+	text-align:center;
+}
+.nameCell { 
+	text-align:center;
+	&:hover{
+		color: red;
+	}
+}
 .button { 
 	background-color: #4CAF50; /* Green */
 	border: 2px black;
@@ -24,8 +32,8 @@ tr {
     font-size: 16px;
     transition-duration: 0.4s;
 	margin: 10px;
-}
-.button:hover {
-    background-color: white; /* Green */
-    color: black;
+	&:hover{
+		background-color: white; /* Green */
+    	color: black;
+	}
 }
