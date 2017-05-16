@@ -10,10 +10,15 @@ tr {
     border-bottom: 2px solid black; }
 
 .headerCell {
-  text-align: center; }
+  text-align: center;
+  background-color: yellow;
+  border-bottom: 1px black;
+  font-size: 1.5em; }
 
 .nameCell {
-  text-align: center; }
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.2em; }
   .nameCell:hover {
     color: red; }
 

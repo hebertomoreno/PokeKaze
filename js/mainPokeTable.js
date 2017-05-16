@@ -12,21 +12,25 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 	//set the class of the header row so it can be css styled. 
 	headerRow.setAttribute("class", "headerRow");
 
+	/*Headers!!!*/
 	var headNum = document.createElement("th");
 	var headNumText = document.createTextNode("Number");
 	headNum.setAttribute("class", "headerCell");
 	headNum.appendChild(headNumText);
 	headerRow.appendChild(headNum);
+
 	var headImg = document.createElement("th");
 	var headImgText = document.createTextNode("IMG");
 	headImg.setAttribute("class", "headerCell");
 	headImg.appendChild(headImgText);
 	headerRow.appendChild(headImg);
+
 	var headName = document.createElement("th");
 	var headNameText = document.createTextNode("Name");
 	headName.setAttribute("class", "headerCell");
 	headName.appendChild(headNameText);
 	headerRow.appendChild(headName);
+
 	var headType = document.createElement("th");
 	var headTypeText = document.createTextNode("Type");
 	headType.setAttribute("class", "headerCell");
@@ -38,7 +42,7 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 	headCapt.setAttribute("class", "headerCell");
 	headCapt.appendChild(headCaptText);
 	headerRow.appendChild(headCapt);
-
+	//Append the header to the tblHeader
 	tblHead.appendChild(headerRow);
 
 	for (var i in pokemon){

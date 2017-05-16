@@ -14,9 +14,14 @@ tr {
 }
 .headerCell{
 	text-align:center;
+	background-color: yellow;
+	border-bottom: 1px black;
+	font-size: 1.5em;
 }
 .nameCell { 
 	text-align:center;
+	vertical-align:middle;
+	font-size: 1.2em;
 	&:hover{
 		color: red;
 	}
