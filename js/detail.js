@@ -19,7 +19,7 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 
 	var pokeImg = document.createElement("img");
 	pokeImg.src = detPokemon.img;
-	pokeImg.setAttribute("class","pkmnImg");
+	pokeImg.setAttribute("class","pkmnImg container-fluid");
 	detView.appendChild(pokeImg);
 
 	pokeTitle = document.createElement("h1");
