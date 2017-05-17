@@ -72,9 +72,19 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 		var captCell = document.createElement("td");
 		var captCellButton = document.createElement("button");
 		captCellButton.setAttribute("class","button");
-		captCellButton.innerHTML = "Capture";
+		captCellButton.setAttribute("id",pokemon[i].id);
+		if(localStorage.getItem(pokemon[i].id)){
+			captCellButton.innerHTML = "Captured!!!";
+			captCellButton.setAttribute("class","button captured");
+		} else {
+			captCellButton.innerHTML = "Capture";
+			captCellButton.setAttribute("class","button free");
+		}
 		captCellButton.addEventListener("click", function(){
-			alert("Captured!!")
+			console.log(this.id);
+			localStorage.setItem(this.id,1);
+			//console.log(localStorage.getItem(pokemon[i].id))
+			captCellButton.innerHTML = "Captured!!!"
 		});
 		captCell.append(captCellButton);
 
