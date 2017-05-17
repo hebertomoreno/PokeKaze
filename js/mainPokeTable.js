@@ -1,7 +1,7 @@
 var body = document.getElementsByTagName("body")[0];
 
 var tbl = document.createElement("table");
-tbl.setAttribute("class","table container-fluid");
+tbl.setAttribute("class","table container-fluid col-xs-12");
 var tblHead = document.createElement("thead");
 var tblBody = document.createElement("tbody");
 
@@ -31,11 +31,11 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 	headName.appendChild(headNameText);
 	headerRow.appendChild(headName);
 
-	var headType = document.createElement("th");
+	/*var headType = document.createElement("th");
 	var headTypeText = document.createTextNode("Type");
 	headType.setAttribute("class", "headerCell");
 	headType.appendChild(headTypeText);
-	headerRow.appendChild(headType);
+	headerRow.appendChild(headType);*/
 
 	var headCapt = document.createElement("th");
 	var headCaptText = document.createTextNode("Captured?");
@@ -64,10 +64,10 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 		nameCell.setAttribute("class","nameCell");
 		nameCell.appendChild(nameCellText);
 
-		var typeCell= document.createElement("td");
+		/*var typeCell= document.createElement("td");
 		var typeCellText= document.createTextNode(pokemon[i].type);
 		typeCell.setAttribute("class","typeCell");
-		typeCell.appendChild(typeCellText);
+		typeCell.appendChild(typeCellText);*/
 
 		var captCell = document.createElement("td");
 		var captCellButton = document.createElement("button");
@@ -89,6 +89,7 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 			localStorage.setItem(this.id,1);
 			//console.log(localStorage.getItem(pokemon[i].id))
 			this.innerHTML = "Captured!!!"
+			this.style.color = "red";
 		});
 		captCell.append(captCellButton);
 
@@ -99,7 +100,7 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 		row.appendChild(numCell);
 		//row.appendChild(imgCell);
 		row.appendChild(nameCell);
-		row.appendChild(typeCell);
+		//row.appendChild(typeCell);
 		row.appendChild(captCell);
 
 		tblBody.appendChild(row);
