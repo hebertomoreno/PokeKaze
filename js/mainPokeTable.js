@@ -19,11 +19,11 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 	headNum.appendChild(headNumText);
 	headerRow.appendChild(headNum);
 
-	var headImg = document.createElement("th");
+	/*var headImg = document.createElement("th");
 	var headImgText = document.createTextNode("IMG");
 	headImg.setAttribute("class", "headerCell");
 	headImg.appendChild(headImgText);
-	headerRow.appendChild(headImg);
+	headerRow.appendChild(headImg);*/
 
 	var headName = document.createElement("th");
 	var headNameText = document.createTextNode("Name");
@@ -54,10 +54,10 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 		numCell.setAttribute("class","numCell");
 		numCell.appendChild(numCellText);
 
-		var imgCell = document.createElement("td");
+		/*var imgCell = document.createElement("td");
 		var pokeImg = document.createElement("img");
 		pokeImg.src = pokemon[i].img;
-		imgCell.appendChild(pokeImg);
+		imgCell.appendChild(pokeImg);*/
 
 		var nameCell= document.createElement("td");
 		var nameCellText= document.createTextNode(pokemon[i].name);
@@ -73,6 +73,7 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 		var captCellButton = document.createElement("button");
 		captCellButton.setAttribute("class","button");
 		captCellButton.setAttribute("id",pokemon[i].id);
+
 		if(localStorage.getItem(pokemon[i].id)){
 			captCellButton.innerHTML = "Captured!!!";
 			captCellButton.setAttribute("class","button captured");
@@ -82,9 +83,12 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 		}
 		captCellButton.addEventListener("click", function(){
 			console.log(this.id);
+			console.log(this.value);
+			var elem = document.getElementById(this.id);
+			console.log(elem.value);
 			localStorage.setItem(this.id,1);
 			//console.log(localStorage.getItem(pokemon[i].id))
-			captCellButton.innerHTML = "Captured!!!"
+			this.innerHTML = "Captured!!!"
 		});
 		captCell.append(captCellButton);
 
@@ -93,7 +97,7 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 		/*console.log(pokemon[i].id);
 		console.log(pokemon[i].name);*/
 		row.appendChild(numCell);
-		row.appendChild(imgCell);
+		//row.appendChild(imgCell);
 		row.appendChild(nameCell);
 		row.appendChild(typeCell);
 		row.appendChild(captCell);

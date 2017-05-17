@@ -8,8 +8,6 @@ tr {
 		background-color: #e4e4e4
 	}
 	td {
-		padding: 10px;
-		border-bottom: 2px solid black;;
 	}
 }
 .headerCell{
@@ -17,12 +15,13 @@ tr {
 	background-color: yellow;
 	border-bottom: 1px black;
 	font-size: 1.5em;
-	cursor: pointer;
+	
 }
 .nameCell { 
 	text-align:center;
 	vertical-align:middle;
 	font-size: 1.2em;
+	cursor: pointer;
 	&:hover{
 		color: red;
 	}
@@ -38,6 +37,7 @@ tr {
     font-size: 16px;
     transition-duration: 0.4s;
 	margin: 10px;
+	cursor: pointer;
 	&:hover{
 		background-color: white; /* Green */
     	color: black;
