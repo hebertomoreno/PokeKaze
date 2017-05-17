@@ -1,6 +1,9 @@
 html * {
   font-family: 'Montserrat', sans-serif; }
 
+.table {
+  border-collapse: collapse; }
+
 tr {
   text-align: center; }
   tr:nth-child(even) {
@@ -9,16 +12,17 @@ tr {
 .headerCell {
   text-align: center;
   background-color: yellow;
-  border-bottom: 1px black;
-  font-size: 1.5em; }
+  border-bottom: 1px black; }
 
 .nameCell {
   text-align: center;
   vertical-align: middle;
-  font-size: 1.2em;
   cursor: pointer; }
   .nameCell:hover {
     color: red; }
+
+.captCell {
+  text-align: center; }
 
 .free {
   background-color: #4CAF50;
