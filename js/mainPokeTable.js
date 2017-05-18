@@ -104,14 +104,12 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 			captCellButton.setAttribute("class","button captButton free");
 		}
 		captCellButton.addEventListener("click", function(){
-			console.log(this.id);
-			console.log(this.value);
 			var elem = document.getElementById(this.id);
 			console.log(elem.value);
 			localStorage.setItem(this.id,1);
 			//console.log(localStorage.getItem(pokemon[i].id))
 			this.innerHTML = "Captured!!!"
-			this.style.color = "red";
+			this.setAttribute("class","button captButton captured");
 		});
 		captCell.append(captCellButton);
 
