@@ -1,3 +1,11 @@
+function checkType(typeToCheck, typeArray){
+	for (var j in typeArray) {
+		if (typeToCheck == typeArray[j]) {
+			return true;
+		}
+	}
+	return false;
+}
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -8,7 +16,7 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-var num = getParameterByName('num');
+var parType = getParameterByName('type');
 //var detView = document.getElementById("pokemonDetails");
 var body = document.getElementsByTagName("body")[0];
 
@@ -52,93 +60,96 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 	tblHead.appendChild(headerRow);
 
 	for (var i in pokemon){
-		var row = document.createElement("tr");
-		row.setAttribute("class", "dataRow");
-		/*var rowHidden = document.createElement("tr");
-		row.setAttribute("class","hide");*/
+		types = pokemon[i].type;
+		if (checkType(parType,types)){
+			var row = document.createElement("tr");
+			row.setAttribute("class", "dataRow");
+			/*var rowHidden = document.createElement("tr");
+			row.setAttribute("class","hide");*/
 
 
-		var numCell= document.createElement("td");
-		var numCellText= document.createTextNode(pokemon[i].num);
-		numCell.setAttribute("class","numCell");
-		numCell.appendChild(numCellText);
+			var numCell= document.createElement("td");
+			var numCellText= document.createTextNode(pokemon[i].num);
+			numCell.setAttribute("class","numCell");
+			numCell.appendChild(numCellText);
 
-		/*var imgCell = document.createElement("td");
-		var pokeImg = document.createElement("img");
-		pokeImg.src = pokemon[i].img;
-		imgCell.appendChild(pokeImg);*/
+			/*var imgCell = document.createElement("td");
+			var pokeImg = document.createElement("img");
+			pokeImg.src = pokemon[i].img;
+			imgCell.appendChild(pokeImg);*/
 
-		var nameCell= document.createElement("td");
-		var nameCellText= document.createTextNode(pokemon[i].name);
-		nameCell.setAttribute("class","nameCell");
-		nameCell.setAttribute("id",pokemon[i].num);
-		nameCell.appendChild(nameCellText);
-		nameCell.addEventListener("click", function(){
-			var form = document.createElement('form');
-			form.setAttribute('method','post');
-			form.setAttribute('action','./detail.html?num='+this.id);
-			form.style.display = 'hidden';
-			document.body.appendChild(form)
-			form.submit();
-
-		})
-		/*Print the types!!!*/
-		var typeCell= document.createElement("td");
-		var types = pokemon[i].type;
-		for (var f in types){
-			pokeType = document.createElement("h3");
-			titleType = document.createTextNode(types[f]);
-			pokeType.setAttribute("id",types[f]);
-			pokeType.appendChild(titleType);
-			pokeType.setAttribute("class","typeBut "+types[f]);
-			pokeType.addEventListener("click", function(){
+			var nameCell= document.createElement("td");
+			var nameCellText= document.createTextNode(pokemon[i].name);
+			nameCell.setAttribute("class","nameCell");
+			nameCell.setAttribute("id",pokemon[i].num);
+			nameCell.appendChild(nameCellText);
+			nameCell.addEventListener("click", function(){
 				var form = document.createElement('form');
 				form.setAttribute('method','post');
-				form.setAttribute('action','./filter.html?type='+this.id);
+				form.setAttribute('action','./detail.html?num='+this.id);
 				form.style.display = 'hidden';
 				document.body.appendChild(form)
 				form.submit();
+
 			})
-			typeCell.appendChild(pokeType);
+			/*Print the types!!!*/
+			var typeCell= document.createElement("td");
+			var types = pokemon[i].type;
+			for (var f in types){
+				pokeType = document.createElement("h3");
+				titleType = document.createTextNode(types[f]);
+				pokeType.setAttribute("id",types[f]);
+				pokeType.appendChild(titleType);
+				pokeType.setAttribute("class","typeBut "+types[f]);
+				pokeType.addEventListener("click", function(){
+					var form = document.createElement('form');
+					form.setAttribute('method','post');
+					form.setAttribute('action','./filter.html?type='+this.id);
+					form.style.display = 'hidden';
+					document.body.appendChild(form)
+					form.submit();
+				})
+				typeCell.appendChild(pokeType);
+			}
+			typeCell.setAttribute("class","typeCell");
+			//typeCell.appendChild(typeCellText);
+
+			var captCell = document.createElement("td");
+			var captCellButton = document.createElement("button");
+			//captCellButton.setAttribute("class","button captButton");
+			captCellButton.setAttribute("id",pokemon[i].id);
+			if(localStorage.getItem(pokemon[i].id)){
+				captCellButton.innerHTML = "Captured!!!";
+				captCellButton.setAttribute("class","button captButton captured");
+			} else {
+				captCellButton.innerHTML = "Capture";
+				captCellButton.setAttribute("class","button captButton free");
+			}
+			captCellButton.addEventListener("click", function(){
+				console.log(this.id);
+				console.log(this.value);
+				var elem = document.getElementById(this.id);
+				console.log(elem.value);
+				localStorage.setItem(this.id,1);
+				//console.log(localStorage.getItem(pokemon[i].id))
+				this.innerHTML = "Captured!!!"
+				this.style.color = "red";
+			});
+			captCell.append(captCellButton);
+
+			/*var cell = document.createElement("td");
+			var cellText = document.createTextNode(specPokemon[i])*/
+			/*console.log(pokemon[i].id);
+			console.log(pokemon[i].name);*/
+			row.appendChild(numCell);
+			//rowHidden.appendChild(imgCell);
+			row.appendChild(nameCell);
+			row.appendChild(typeCell);
+			row.appendChild(captCell);
+
+			tblBody.appendChild(row);
+			//tblBody.appendChild(rowHidden);
 		}
-		typeCell.setAttribute("class","typeCell");
-		//typeCell.appendChild(typeCellText);
-
-		var captCell = document.createElement("td");
-		var captCellButton = document.createElement("button");
-		//captCellButton.setAttribute("class","button captButton");
-		captCellButton.setAttribute("id",pokemon[i].id);
-		if(localStorage.getItem(pokemon[i].id)){
-			captCellButton.innerHTML = "Captured!!!";
-			captCellButton.setAttribute("class","button captButton captured");
-		} else {
-			captCellButton.innerHTML = "Capture";
-			captCellButton.setAttribute("class","button captButton free");
-		}
-		captCellButton.addEventListener("click", function(){
-			console.log(this.id);
-			console.log(this.value);
-			var elem = document.getElementById(this.id);
-			console.log(elem.value);
-			localStorage.setItem(this.id,1);
-			//console.log(localStorage.getItem(pokemon[i].id))
-			this.innerHTML = "Captured!!!"
-			this.style.color = "red";
-		});
-		captCell.append(captCellButton);
-
-		/*var cell = document.createElement("td");
-		var cellText = document.createTextNode(specPokemon[i])*/
-		/*console.log(pokemon[i].id);
-		console.log(pokemon[i].name);*/
-		row.appendChild(numCell);
-		//rowHidden.appendChild(imgCell);
-		row.appendChild(nameCell);
-		row.appendChild(typeCell);
-		row.appendChild(captCell);
-
-		tblBody.appendChild(row);
-		//tblBody.appendChild(rowHidden);
 	}
 	//console.log(pokemon);
 	//put the <thead> in the <table>
@@ -146,7 +157,7 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 	// put the <tbody> in the <table>
 	tbl.appendChild(tblBody);
 	// appends <table> into <body>
-	document.getElementById("mainTable").appendChild(tbl);
+	document.getElementById("filTable").appendChild(tbl);
 	// sets the border attribute of tbl to 2;
 	tbl.setAttribute("border", "2");
 })
