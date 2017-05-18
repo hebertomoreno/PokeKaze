@@ -1,7 +1,7 @@
 var body = document.getElementsByTagName("body")[0];
 
 var tbl = document.createElement("table");
-tbl.setAttribute("class","table responsive");
+tbl.setAttribute("class","table responsive filteredTable");
 var tblHead = document.createElement("thead");
 var tblBody = document.createElement("tbody");
 
