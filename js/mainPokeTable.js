@@ -19,23 +19,17 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 	headNum.appendChild(headNumText);
 	headerRow.appendChild(headNum);
 
-	/*var headImg = document.createElement("th");
-	var headImgText = document.createTextNode("IMG");
-	headImg.setAttribute("class", "headerCell");
-	headImg.appendChild(headImgText);
-	headerRow.appendChild(headImg);*/
-
 	var headName = document.createElement("th");
 	var headNameText = document.createTextNode("Name");
 	headName.setAttribute("class", "headerCell");
 	headName.appendChild(headNameText);
 	headerRow.appendChild(headName);
 
-	/*var headType = document.createElement("th");
+	var headType = document.createElement("th");
 	var headTypeText = document.createTextNode("Type");
 	headType.setAttribute("class", "headerCell");
 	headType.appendChild(headTypeText);
-	headerRow.appendChild(headType);*/
+	headerRow.appendChild(headType);
 
 	var headCapt = document.createElement("th");
 	var headCaptText = document.createTextNode("Captured?");
@@ -68,7 +62,6 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 		nameCell.setAttribute("id",pokemon[i].num);
 		nameCell.appendChild(nameCellText);
 		nameCell.addEventListener("click", function(){
-			//console.log('./detail.html?'+this.id)
 			var form = document.createElement('form');
 			form.setAttribute('method','post');
 			form.setAttribute('action','./detail.html?num='+this.id);
@@ -78,16 +71,32 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 
 		})
 
-		/*var typeCell= document.createElement("td");
-		var typeCellText= document.createTextNode(pokemon[i].type);
+		var typeCell= document.createElement("td");
+		//var typeCellText= document.createTextNode(pokemon[i].type);
+		var types = pokemon[i].type;
+		for (var f in types){
+			pokeType = document.createElement("h3");
+			titleType = document.createTextNode(types[f]);
+			pokeType.setAttribute("id",types[f]);
+			pokeType.appendChild(titleType);
+			pokeType.setAttribute("class","typeBut "+types[f]);
+			pokeType.addEventListener("click", function(){
+				var form = document.createElement('form');
+				form.setAttribute('method','post');
+				form.setAttribute('action','./filter.html?type='+this.id);
+				form.style.display = 'hidden';
+				document.body.appendChild(form)
+				form.submit();
+			})
+			typeCell.appendChild(pokeType);
+		}
 		typeCell.setAttribute("class","typeCell");
-		typeCell.appendChild(typeCellText);*/
+		//typeCell.appendChild(typeCellText);
 
 		var captCell = document.createElement("td");
 		var captCellButton = document.createElement("button");
 		captCellButton.setAttribute("class","button");
 		captCellButton.setAttribute("id",pokemon[i].id);
-
 		if(localStorage.getItem(pokemon[i].id)){
 			captCellButton.innerHTML = "Captured!!!";
 			captCellButton.setAttribute("class","button captured");
@@ -114,7 +123,7 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 		row.appendChild(numCell);
 		//rowHidden.appendChild(imgCell);
 		row.appendChild(nameCell);
-		//rowHidden.appendChild(typeCell);
+		row.appendChild(typeCell);
 		row.appendChild(captCell);
 
 		tblBody.appendChild(row);

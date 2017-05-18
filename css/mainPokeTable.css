@@ -27,37 +27,36 @@ tr {
 .free {
   background-color: #4CAF50;
   /* Green */
-  border: 2px black;
+  margin: none;
+  border: none;
+  padding: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   transition-duration: 0.4s;
-  margin: 10px;
   cursor: pointer; }
   .free:hover {
     background-color: white;
-    /* Green */
     color: black; }
 
 .captured {
   background-color: red;
-  /* Green */
-  border: 2px black;
+  margin: none;
+  border: none;
+  padding: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   transition-duration: 0.4s;
-  margin: 10px;
   cursor: pointer; }
   .captured:hover {
     background-color: white;
-    /* Green */
     color: black; }
 
 /*# sourceMappingURL=mainPokeTable.css.map */

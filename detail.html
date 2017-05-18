@@ -8,11 +8,77 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 		<link type="text/css" media="screen" rel="stylesheet" href="responsive-tables.css" />
 		<script type="text/javascript" src="responsive-tables.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/mainPokeTable.css">
+		<link rel="stylesheet" type="text/css" href="css/detail.css">
 	</head>
 	<body>
-		<div class="detailView" id="pokemonDetails">
-			<script type="text/javascript" src="js/detail.js"></script>
+		<div class="container-fluid" id="allEncompassDiv">
+			<div class="row">
+				<div class="col-xs-2 col-md-2 col-lg-2">
+					<form action="index.html">
+						<input class="typeBut" type="submit" value="Back to pokedex" />
+					</form>
+				</div>
+				<div class="col-xs-10 col-md-10 col-lg-10">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2 col-md-2 col-lg-2">
+				</div>
+				<div class="detailImg col-xs-8 col-md-8 col-lg-8" id="detImg">
+				</div>
+				<div class="col-xs-2 col-md-2 col-lg-2">
+				</div>
+			</div>
+			<div class="row" id="detNumName">
+				<div class="col-md-1 col-lg-1">
+				</div>
+				<div class="col-xs-6 col-md-5 col-lg-5" id="detNum">
+				</div>
+				<div class="col-xs-6 col-md-5 col-lg-5" id="detName">
+				</div>
+				<div class="col-md-1 col-lg-1">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-md-3 col-lg-3">
+				</div>
+				<div class="detailType col-md-6" id="detType">
+				</div>
+				<div class="col-xs-3 col-md-3 col-lg-3">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2 col-md-2 col-lg-2">
+				</div>
+				<div class="detList col-xs-3 col-md-3 col-lg-3" id="detList1">
+				</div>
+				<div class="detList col-xs-4 col-md-4 col-lg-4" id="detList2">
+				</div>
+				<div class="col-xs-3 col-md-3 col-lg-3">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-md-3 col-lg-3">
+					<h3>Weaknesses: </h3>
+				</div>
+				<div class="detailType col-md-6" id="detWeak">
+				</div>
+				<div class="col-xs-3 col-md-3 col-lg-3">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1 col-lg-1">
+				</div>
+				<div class="col-xs-5 col-md-5 col-lg-5" id="detPrev">
+					<h3>Previous Evolutions: </h3>
+				</div>
+				<div class="col-xs-5 col-md-5 col-lg-5" id="detNext">
+					<h3>Next Evolutions: </h3>
+				</div>
+				<div class="col-md-1 col-lg-1">
+				</div>
+			</div>
 		</div>
+		<script type="text/javascript" src="js/detail.js"></script>
 	</body>
 </html>

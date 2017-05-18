@@ -1,0 +1,59 @@
+html * {
+  font-family: 'Montserrat', sans-serif; }
+
+.prevEvo {
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer; }
+  .prevEvo:hover {
+    color: red; }
+
+.typeBut {
+  border: 2px black;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  margin: 10px;
+  cursor: pointer; }
+  .typeBut:hover {
+    background-color: white;
+    color: black; }
+  .typeBut.Grass {
+    background-color: #4CAF50; }
+  .typeBut.Poison {
+    background-color: purple; }
+  .typeBut.Ice {
+    background-color: #42f4eb; }
+  .typeBut.Flying {
+    background-color: #41a9f4; }
+  .typeBut.Fire {
+    background-color: red; }
+  .typeBut.Psychic {
+    background-color: #f441e2; }
+  .typeBut.Rock {
+    background-color: #422e2c; }
+  .typeBut.Ground {
+    background-color: #705c2f; }
+  .typeBut.Water {
+    background-color: #297bce; }
+  .typeBut.Normal {
+    background-color: #db59a3; }
+  .typeBut.Fighting {
+    background-color: #871656; }
+  .typeBut.Ghost {
+    background-color: #470966; }
+  .typeBut.Dark {
+    background-color: #1c0328; }
+  .typeBut.Bug {
+    background-color: #81e878; }
+  .typeBut.Electric {
+    background-color: #ffe92b; }
+  .typeBut.Dragon {
+    background-color: #054d8c; }
+
+/*# sourceMappingURL=detail.css.map */
