@@ -95,7 +95,7 @@ d3.json("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokede
 
 		var captCell = document.createElement("td");
 		var captCellButton = document.createElement("button");
-		captCellButton.setAttribute("class","button");
+		captCellButton.setAttribute("class","button captButton");
 		captCellButton.setAttribute("id",pokemon[i].id);
 		if(localStorage.getItem(pokemon[i].id)){
 			captCellButton.innerHTML = "Captured!!!";

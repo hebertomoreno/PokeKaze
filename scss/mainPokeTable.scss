@@ -4,12 +4,17 @@ html *{
 .table{
 	border-collapse: collapse;
 }
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+      padding: 0px;
+    }
 tr {
 	text-align: center;
 	&:nth-child(even) {
 		background-color: #e4e4e4
 	}
 	td {
+		padding:0px;
 	}
 }
 .headerCell{
@@ -30,6 +35,10 @@ tr {
 }
 .captCell{
 	text-align:center;
+}
+.captButton{
+	margin:10px;
+	padding:10px;
 }
 .free { 
 	background-color: #4CAF50; /* Green */
