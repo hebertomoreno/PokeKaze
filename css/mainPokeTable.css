@@ -12,8 +12,6 @@ tr {
   text-align: center; }
   tr:nth-child(even) {
     background-color: #e4e4e4; }
-  tr td {
-    padding: 0px; }
 
 .headerCell {
   text-align: center;
@@ -32,14 +30,12 @@ tr {
 
 .captButton {
   margin: 10px;
-  padding: 10px; }
+  padding: 10px;
+  border: 10px; }
 
 .free {
   background-color: #4CAF50;
   /* Green */
-  margin: none;
-  border: none;
-  padding: none;
   color: white;
   padding: 10px 10px;
   text-align: center;
@@ -54,9 +50,6 @@ tr {
 
 .captured {
   background-color: red;
-  margin: none;
-  border: none;
-  padding: none;
   color: white;
   padding: 10px 10px;
   text-align: center;
